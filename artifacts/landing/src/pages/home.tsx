@@ -287,20 +287,41 @@ function FeatureItem({ title, description }: { title: string, description: strin
 }
 
 function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [fields, setFields] = useState({ name: "", email: "", company: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFields(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
-    // Simulate API call
-    setTimeout(() => {
-      setStatus("success");
-    }, 1500);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `New Inquiry from ${fields.name} — ${fields.company}`,
+          ...fields,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        setFields({ name: "", email: "", company: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
     return (
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="p-12 text-center bg-card border border-border rounded-xl"
@@ -312,7 +333,7 @@ function ContactForm() {
         <p className="text-muted-foreground">
           Our engineering team will review your requirements and reach out within 24 hours.
         </p>
-        <button 
+        <button
           onClick={() => setStatus("idle")}
           className="mt-8 text-sm text-primary hover:underline"
         >
@@ -327,30 +348,36 @@ function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-gray-300">Full Name</label>
-          <input 
+          <input
             id="name"
             required
+            value={fields.name}
+            onChange={handleChange}
             className="w-full bg-background border border-border rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
             placeholder="Jane Doe"
           />
         </div>
         <div className="space-y-2">
           <label htmlFor="email" className="text-sm font-medium text-gray-300">Work Email</label>
-          <input 
+          <input
             id="email"
             type="email"
             required
+            value={fields.email}
+            onChange={handleChange}
             className="w-full bg-background border border-border rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
             placeholder="jane@company.com"
           />
         </div>
       </div>
-      
+
       <div className="space-y-2">
         <label htmlFor="company" className="text-sm font-medium text-gray-300">Company Name</label>
-        <input 
+        <input
           id="company"
           required
+          value={fields.company}
+          onChange={handleChange}
           className="w-full bg-background border border-border rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
           placeholder="Acme Corp"
         />
@@ -358,16 +385,22 @@ function ContactForm() {
 
       <div className="space-y-2">
         <label htmlFor="message" className="text-sm font-medium text-gray-300">Project Details</label>
-        <textarea 
+        <textarea
           id="message"
           required
           rows={5}
+          value={fields.message}
+          onChange={handleChange}
           className="w-full bg-background border border-border rounded-md px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
           placeholder="Briefly describe your current infrastructure and requirements..."
         />
       </div>
 
-      <button 
+      {status === "error" && (
+        <p className="text-sm text-red-400">Something went wrong. Please try again or email us directly.</p>
+      )}
+
+      <button
         type="submit"
         disabled={status === "submitting"}
         className="w-full py-4 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
