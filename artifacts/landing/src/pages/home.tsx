@@ -294,18 +294,17 @@ function ContactForm() {
     setFields(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
     try {
+      const formData = new FormData(e.currentTarget);
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+      formData.append("subject", `New Inquiry from ${fields.name} — ${fields.company}`);
+
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
-          subject: `New Inquiry from ${fields.name} — ${fields.company}`,
-          ...fields,
-        }),
+        body: formData,
       });
       const data = await res.json();
       if (data.success) {
@@ -350,6 +349,7 @@ function ContactForm() {
           <label htmlFor="name" className="text-sm font-medium text-gray-300">Full Name</label>
           <input
             id="name"
+            name="name"
             required
             value={fields.name}
             onChange={handleChange}
@@ -361,6 +361,7 @@ function ContactForm() {
           <label htmlFor="email" className="text-sm font-medium text-gray-300">Work Email</label>
           <input
             id="email"
+            name="email"
             type="email"
             required
             value={fields.email}
@@ -375,6 +376,7 @@ function ContactForm() {
         <label htmlFor="company" className="text-sm font-medium text-gray-300">Company Name</label>
         <input
           id="company"
+          name="company"
           required
           value={fields.company}
           onChange={handleChange}
@@ -387,6 +389,7 @@ function ContactForm() {
         <label htmlFor="message" className="text-sm font-medium text-gray-300">Project Details</label>
         <textarea
           id="message"
+          name="message"
           required
           rows={5}
           value={fields.message}
