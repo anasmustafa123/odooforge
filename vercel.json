@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/landing run build",
-  "outputDirectory": "artifacts/landing/dist/public",
+  "outputDirectory": "artifacts/landing/dist",
   "installCommand": "pnpm install",
   "framework": null,
   "env": {
