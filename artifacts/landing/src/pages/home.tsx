@@ -117,23 +117,55 @@ export default function Home() {
 
       {/* 3. Trusted By (Marquee) */}
       <section className="py-12 border-y border-border/50 bg-card/30 relative overflow-hidden flex flex-col items-center">
-        <p className="text-sm text-muted-foreground uppercase tracking-widest mb-8 font-medium">Trusted by</p>
+        <p className="text-sm text-muted-foreground uppercase tracking-widest mb-8 font-medium">
+          Trusted by
+        </p>
+
         <div className="w-full max-w-7xl mx-auto mask-edges overflow-hidden relative">
-          <div className="flex w-[200%] animate-marquee hover-pause items-center gap-0">
+          <div className="flex w-[200%] animate-marquee hover-pause items-center">
+
             {/* First Set */}
-            <div className="flex w-1/2 justify-around items-center gap-16 px-8">
-              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/egypt-reference.png" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+            <div className="flex w-1/2 justify-around items-center px-8">
+              {[
+                { src: "/logos/ateb-group.png", alt: "ATEB Group" },
+                { src: "/logos/ateb-ltd.png", alt: "ATEB Ltd" },
+                { src: "/logos/orient.png", alt: "Orient for Transformation" },
+                { src: "/logos/egypt-reference.png", alt: "Egypt Reference" },
+              ].map((logo) => (
+                <div
+                  key={logo.alt}
+                  className="w-48 h-20 flex items-center justify-center"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
             </div>
-            {/* Second Set (Duplicate for seamless loop) */}
-            <div className="flex w-1/2 justify-around items-center gap-16 px-8">
-              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/egypt-reference.png" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+
+            {/* Second Set */}
+            <div className="flex w-1/2 justify-around items-center px-8">
+              {[
+                { src: "/logos/ateb-group.png", alt: "ATEB Group" },
+                { src: "/logos/ateb-ltd.png", alt: "ATEB Ltd" },
+                { src: "/logos/orient.png", alt: "Orient for Transformation" },
+                { src: "/logos/egypt-reference.png", alt: "Egypt Reference" },
+              ].map((logo) => (
+                <div
+                  key={`${logo.alt}-2`}
+                  className="w-48 h-20 flex items-center justify-center"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              ))}
             </div>
+
           </div>
         </div>
       </section>
