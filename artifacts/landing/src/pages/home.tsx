@@ -117,7 +117,7 @@ export default function Home() {
 
       {/* 3. Trusted By (Marquee) */}
       <section className="py-12 border-y border-border/50 bg-card/30 relative overflow-hidden flex flex-col items-center">
-        <p className="text-sm text-muted-foreground uppercase tracking-widest mb-8 font-medium">Trusted by engineering teams at</p>
+        <p className="text-sm text-muted-foreground uppercase tracking-widest mb-8 font-medium">Trusted by</p>
         <div className="w-full max-w-7xl mx-auto mask-edges overflow-hidden relative">
           <div className="flex w-[200%] animate-marquee hover-pause items-center gap-0">
             {/* First Set */}
