@@ -122,17 +122,17 @@ export default function Home() {
           <div className="flex w-[200%] animate-marquee hover-pause items-center gap-0">
             {/* First Set */}
             <div className="flex w-1/2 justify-around items-center gap-16 px-8">
-              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/egypt-reference.jpg" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/egypt-reference.png" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
             </div>
             {/* Second Set (Duplicate for seamless loop) */}
             <div className="flex w-1/2 justify-around items-center gap-16 px-8">
-              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
-              <img src="/logos/egypt-reference.jpg" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/ateb-group.png"      alt="ATEB Group"                 className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/ateb-ltd.png"        alt="ATEB Ltd"                   className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/orient.png"          alt="Orient for Transformation"  className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
+              <img src="/logos/egypt-reference.png" alt="Egypt Reference"            className="h-10 max-w-[160px] object-contain    opacity-60 hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
