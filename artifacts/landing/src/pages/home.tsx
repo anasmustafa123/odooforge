@@ -43,12 +43,22 @@ export default function Home() {
             </div>
             <span className="font-display font-bold text-xl tracking-tight">Ovexe</span>
           </div>
-          <button 
-            onClick={scrollToContact}
-            className="text-sm font-medium px-5 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-colors flex items-center gap-2"
-          >
-            Contact Us <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://demo.yourdomain.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium px-5 py-2.5 rounded-full border border-border/60 text-muted-foreground hover:text-white hover:border-border transition-colors"
+            >
+              View Demo
+            </a>
+            <button 
+              onClick={scrollToContact}
+              className="text-sm font-medium px-5 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-colors flex items-center gap-2"
+            >
+              Contact Us <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </nav>
 
