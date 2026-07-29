@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="https://demo.yourdomain.com"
+              href="http://54.145.72.107"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium px-5 py-2.5 rounded-full border border-border/60 text-muted-foreground hover:text-white hover:border-border transition-colors"
