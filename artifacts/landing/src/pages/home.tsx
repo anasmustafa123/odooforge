@@ -25,6 +25,28 @@ export default function Home() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
+  const logos = [
+    {
+      src: "/logos/ateb-group.png",
+      alt: "ATEB Group",
+      scale: "scale-100",
+    },
+    {
+      src: "/logos/ateb-ltd.png",
+      alt: "ATEB Ltd",
+      scale: "scale-150",
+    },
+    {
+      src: "/logos/orient.png",
+      alt: "Orient for Transformation",
+      scale: "scale-150",
+    },
+    {
+      src: "/logos/egypt-reference.png",
+      alt: "Egypt Reference",
+      scale: "scale-100",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
@@ -77,7 +99,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Odoo Community Edition Experts
+            Odoo Experts
           </motion.div>
 
           <motion.h1
@@ -126,20 +148,15 @@ export default function Home() {
 
             {/* First Set */}
             <div className="flex w-1/2 justify-around items-center px-8">
-              {[
-                { src: "/logos/ateb-group.png", alt: "ATEB Group" },
-                { src: "/logos/ateb-ltd.png", alt: "ATEB Ltd" },
-                { src: "/logos/orient.png", alt: "Orient for Transformation" },
-                { src: "/logos/egypt-reference.png", alt: "Egypt Reference" },
-              ].map((logo) => (
+              {logos.map((logo) => (
                 <div
                   key={logo.alt}
-                  className="w-48 h-20 flex items-center justify-center"
+                  className="w-48 h-20 flex items-center justify-center overflow-visible"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    className={`${logo.scale} max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-all duration-300`}
                   />
                 </div>
               ))}
@@ -147,20 +164,15 @@ export default function Home() {
 
             {/* Second Set */}
             <div className="flex w-1/2 justify-around items-center px-8">
-              {[
-                { src: "/logos/ateb-group.png", alt: "ATEB Group" },
-                { src: "/logos/ateb-ltd.png", alt: "ATEB Ltd" },
-                { src: "/logos/orient.png", alt: "Orient for Transformation" },
-                { src: "/logos/egypt-reference.png", alt: "Egypt Reference" },
-              ].map((logo) => (
+              {logos.map((logo) => (
                 <div
                   key={`${logo.alt}-2`}
-                  className="w-48 h-20 flex items-center justify-center"
+                  className="w-48 h-20 flex items-center justify-center overflow-visible"
                 >
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    className={`${logo.scale} max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-all duration-300`}
                   />
                 </div>
               ))}
