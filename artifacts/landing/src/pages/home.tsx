@@ -34,12 +34,12 @@ export default function Home() {
     {
       src: "/logos/ateb-ltd.png",
       alt: "ATEB Ltd",
-      scale: "scale-150",
+      scale: "scale-250",
     },
     {
       src: "/logos/orient.png",
       alt: "Orient for Transformation",
-      scale: "scale-150",
+      scale: "scale-250",
     },
     {
       src: "/logos/egypt-reference.png",
