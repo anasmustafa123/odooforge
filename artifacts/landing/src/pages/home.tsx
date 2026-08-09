@@ -63,7 +63,7 @@ export default function Home() {
             <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
               <span className="font-display font-bold text-white text-lg">O</span>
             </div>
-            <span className="font-display font-bold text-xl tracking-tight">Ovexe</span>
+            <span className="font-display font-bold text-xl tracking-tight">Perfectus Technologies Inc</span>
           </div>
           <div className="flex items-center gap-3">
             <a
@@ -289,13 +289,13 @@ export default function Home() {
             <div className="w-6 h-6 rounded bg-primary/20 flex items-center justify-center border border-primary/30">
               <span className="font-display font-bold text-primary text-xs">O</span>
             </div>
-            <span className="font-display font-semibold tracking-tight text-white">Ovexe</span>
+            <span className="font-display font-semibold tracking-tight text-white">Perfectus Technologies Inc</span>
           </div>
           <p className="text-sm text-muted-foreground">
             Precision ERP Engineering.
           </p>
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Ovexe Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Perfectus Technologies Inc. All rights reserved.
           </p>
         </div>
       </footer>
