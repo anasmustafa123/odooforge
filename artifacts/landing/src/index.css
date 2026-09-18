@@ -144,4 +144,60 @@
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   }
+
+  /* ---- Hero background "product video" micro-animations ---- */
+  /* These animate only transform/opacity so they stay GPU-composited */
+
+  /* Dashed connector lines: the dashes march forward like a data stream */
+  .animate-flow {
+    animation: hero-flow 2.2s linear infinite;
+  }
+  @keyframes hero-flow {
+    to { stroke-dashoffset: -28; }
+  }
+
+  /* Ascending bar heights on the analytics screen */
+  .animate-bar {
+    animation: hero-bar 3.2s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+  @keyframes hero-bar {
+    0%, 100% { transform: scaleY(0.45); }
+    50%      { transform: scaleY(1); }
+  }
+
+  /* Slow horizontal ticker scanning a table */
+  .animate-ticker {
+    animation: hero-ticker 6s linear infinite;
+  }
+  @keyframes hero-ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Pulsing badge glow (existing pulse is 2s; this one is calmer) */
+  .animate-pulse-soft {
+    animation: hero-pulse-soft 3s ease-in-out infinite;
+  }
+  @keyframes hero-pulse-soft {
+    0%, 100% { opacity: 0.35; }
+    50%      { opacity: 1; }
+  }
+
+  /* Soft drifting glow behind the mockups */
+  .animate-drift {
+    animation: hero-drift 9s ease-in-out infinite;
+  }
+  @keyframes hero-drift {
+    0%, 100% { transform: translate3d(-12%, -8%, 0) scale(1); }
+    50%      { transform: translate3d(12%, 10%, 0) scale(1.12); }
+  }
+
+  .animate-drift-slow {
+    animation: hero-drift-slow 13s ease-in-out infinite;
+  }
+  @keyframes hero-drift-slow {
+    0%, 100% { transform: translate3d(8%, 10%, 0) scale(1.05); }
+    50%      { transform: translate3d(-10%, -8%, 0) scale(0.95); }
+  }
 }
